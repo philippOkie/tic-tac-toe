@@ -1,5 +1,17 @@
 let gameBoard = ['', '', '', '', '', '', '', '', '']
+let stepCounter = 0
+let whoseTurn = "X"
+let cellOneClicked = 
+    cellTwoClicked = 
+    cellThreeClicked = 
+    cellFourClicked = 
+    cellFiveClicked = 
+    cellSixClicked = 
+    cellSevenClicked = 
+    cellEightClicked = 
+    cellNineClicked = false
 
+const resetBtn = document.getElementById('resetBtn')
 const cellOne = document.getElementById('cellOne')
 const cellTwo = document.getElementById('cellTwo')
 const cellThree = document.getElementById('cellThree')
@@ -9,22 +21,6 @@ const cellSix = document.getElementById('cellSix')
 const cellSeven = document.getElementById('cellSeven')
 const cellEight = document.getElementById('cellEight')
 const cellNine = document.getElementById('cellNine')
-
-const board = document.getElementById('gameBoard')
-let stepCounter = 0
-let whoseTurn = "X"
-let cellOneClicked = false
-let cellTwoClicked = false
-let cellThreeClicked = false
-let cellFourClicked = false
-let cellFiveClicked = false
-let cellSixClicked = false
-let cellSevenClicked = false
-let cellEightClicked = false
-let cellNineClicked = false
-
-const game = function(cellClicked, cellNum) {
-}
 
 cellOne.addEventListener('click', (e) => {
     if (!cellOneClicked) {
@@ -117,8 +113,19 @@ cellNine.addEventListener('click', (e) => {
     }
 })
 
+resetBtn.addEventListener('click', (e) => {
+    resetGame()
+})
 
-const restartGame = function() {
+const changeTurn = function() {
+    if (whoseTurn == "X") {
+        stepCounter++
+        return whoseTurn = "O"
+    }
+    else {
+        stepCounter++
+        return whoseTurn = 'X'
+    }
 }
 
 const checkIfTheIsOver = function() {
@@ -141,7 +148,7 @@ const checkIfTheIsOver = function() {
         gameBoard[2] == "O" && gameBoard[5] == "O" && gameBoard[8] == "O" ||
         gameBoard[0] == "O" && gameBoard[4] == "O" && gameBoard[8] == "O" ||
         gameBoard[2] == "O" && gameBoard[4] == "O" && gameBoard[6] == "O"){
-        console.log("x won")
+        console.log("o won")
     }
 
     else if (stepCounter == 8){
@@ -149,18 +156,29 @@ const checkIfTheIsOver = function() {
     }
 }
 
-
-const changeBoard = function() {   
+const resetGame = function() {
+    cellOneClicked = 
+    cellTwoClicked = 
+    cellThreeClicked = 
+    cellFourClicked = 
+    cellFiveClicked = 
+    cellSixClicked = 
+    cellSevenClicked = 
+    cellEightClicked = 
+    cellNineClicked = false
+    gameBoard = ['', '', '', '', '', '', '', '', '']
+    stepCounter = 0
+    whoseTurn = "X"
+    cellOne.innerHTML = ""
+    cellTwo.innerHTML = ""
+    cellThree.innerHTML = ""
+    cellFour.innerHTML = ""
+    cellFive.innerHTML = ""
+    cellSix.innerHTML = ""
+    cellSeven.innerHTML = ""
+    cellEight.innerHTML = ""
+    cellNine.innerHTML = ""
 }
 
-const changeTurn = function() {
-    if (whoseTurn == "X") {
-        stepCounter++
-        return whoseTurn = "O"
-    }
-    else {
-        stepCounter++
-        return whoseTurn = 'X'
-    }
+const game = function() {
 }
-
