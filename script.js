@@ -1,102 +1,78 @@
-let a1 = a2 = a3 = b1 = b2 = b3 = c1 = c2 = c3 = 0;
-let columns = rows = 2 
-let gameBoard = [
-    [a1, a2, a3], 
-    [b1, b2, b3],
-    [c1, c2, c3]
-];
+let gameBoard = ['', '', '', '', '', '', '', '', '']
+const winningCombinations = [
+    [0, 1, 2],  // Rows
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],  // Columns
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],  // Diagonals
+    [2, 4, 6]
+]
+const cellOne = document.getElementById('cellOne')
+const cellTwo = document.getElementById('cellTwo')
+const cellThree = document.getElementById('cellThree')
+const cellFour = document.getElementById('cellFour')
+const cellFive = document.getElementById('cellFive')
+const cellSix = document.getElementById('cellSix')
+const cellSeven = document.getElementById('cellSeven')
+const cellEight = document.getElementById('cellEight')
+const cellNine = document.getElementById('cellNine')
 
-// 0 1 2
-// 0 1 2
-// 0 1 2
-// 0 means nothing is in the cell
-// 1 means X is in the cell
-// 2 means O is in the cell
-// Winning Combinations:
-// Rows:
-// a1, a2, a3
-// b1, b2, b3
-// c1, c2, c3
-// Columns:
-// a1, b1, c1
-// a2, b2, c2
-// a3, b3, c3
-// Diagonals:
-// a1, b2, c3
-// a3, b2, c1
-// Each of these combinations represents a way to win the game by having three marks (either "X" or "O") in a line.
-// a1, a2, a3, b1, b2, b3, c1, c2, c3 != 0
-// WHEN you press any cell GAME starts(X) then player two(O) goes
-// every step check if the game is over
-// then show the result: tie, X won, O won
-// restart the game
+const board = document.getElementById('gameBoard')
+let stepCounter = 0
+let whoseTurn = "X"
 
-for (let i = 0; i <= rows; i++) {
-    for (let j = 0; j <= columns; j++){
-        console.log(gameBoard[i][j])
-    }
-}
+cellOne.addEventListener('click', (e) => {
+    cellOne.innerHTML = whoseTurn
+})
+cellTwo.addEventListener('click', (e) => {
+    cellTwo.innerHTML = whoseTurn
+})
+cellThree.addEventListener('click', (e) => {
+    cellThree.innerHTML = whoseTurn
+})
+cellFour.addEventListener('click', (e) => {
+    cellFour.innerHTML = whoseTurn
+})
+cellFive.addEventListener('click', (e) => {
+    cellFive.innerHTML = whoseTurn
+})
+cellSix.addEventListener('click', (e) => {
+    cellSix.innerHTML = whoseTurn
+})
+cellSeven.addEventListener('click', (e) => {
+    cellSeven.innerHTML = whoseTurn
+})
+cellEight.addEventListener('click', (e) => {
+    cellEight.innerHTML = whoseTurn
+})
+cellNine.addEventListener('click', (e) => {
+    cellNine.innerHTML = whoseTurn
+})
+
+
+
+
 
 const game = function() {
-
-}
-
-const result = function() {
-
-}
-
-const checkIfTheGameIsOver = function() {
-    // checks rows X
-    if (a1 == 1 && a2 == 1 && a3 == 1 ||
-        b1 == 1 && b2 == 1 && b3 == 1 ||
-        c1 == 1 && c2 == 1 && c3 == 1) {
-
-    }
-    // checks columns X
-    else if (a1 == 1 && b1 == 1 && c1 == 1 ||
-        a2 == 1 && b2 == 1 && c2 == 1 ||
-        a3 == 1 && b3 == 1 && c3 == 1) {
-
-    }
-    // checks diagonals X
-    else if (a1 == 1 && b2 == 1 && c3 == 1 ||
-        a3 == 1 && b2 == 1 && c1 == 1) {
-
-    }
-    // checks rows O
-    if (a1 == 2 && a2 == 2 && a3 == 2 ||
-        b1 == 2 && b2 == 2 && b3 == 2 ||
-        c1 == 2 && c2 == 2 && c3 == 2) {
-
-    }
-    // checks columns O
-    else if (a1 == 2 && b1 == 2 && c1 == 2 ||
-        a2 == 2 && b2 == 2 && c2 == 2 ||
-        a3 == 2 && b3 == 2 && c3 == 2) {
-
-    }
-    // checks diagonals O
-    else if (a1 == 2 && b2 == 2 && c3 == 2 ||
-        a3 == 2 && b2 == 2 && c1 == 2) {
-
-    }
-    // checks if there's no more cells
-    else if (a1 != 0 && a2 != 0 && a3 != 0 &&
-        b1 != 0 && b2 != 0 && b3 != 0 &&
-        c1 != 0 && c2 != 0 && c3 != 0) {
-
-    }
-}
-
-const actions = function() {
-
-}
-
-const player = function() {
-
 }
 
 const restartGame = function() {
+}
 
+const checkIfTheIsOver = function() {
+}
+
+const changeBoard = function() {   
+}
+
+const changeTurn = function() {
+    if (whoseTurn == "X") {
+        return whoseTurn = "O"
+    }
+    else {
+        return whoseTurn = 'X'
+    }
 }
 

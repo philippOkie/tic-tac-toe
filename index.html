@@ -4,26 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
     <title>TIC TAC TOE</title>
 </head>
 <body>
     <div class="generalContainer">
-        <div class="title">TIC TAC TOE</div>
-        <div class="gameBoard">
-            <span class="cell"></span>
-            <span class="cell"></span>
-            <span class="cell"></span>
-            <span class="cell"></span>
-            <span class="cell"></span>
-            <span class="cell"></span>
-            <span class="cell"></span>
-            <span class="cell"></span>
-            <span class="cell"></span>
+        <div class="title" id="showTheResult">TIC TAC TOE</div>
+        <div id="gameBoard" class="gameBoard">
+            <div value='0' id="cellOne" class="cell bordersUp bordersLeft"></div>
+            <div value='1' id="cellTwo" class="cell bordersUp"></div>
+            <div value='2' id="cellThree" class="cell bordersUp bordersRight"></div>
+            <div value='3' id="cellFour" class="cell bordersLeft"></div>
+            <div value='4' id="cellFive" class="cell"></div>
+            <div value='5' id="cellSix" class="cell bordersRight"></div>
+            <div value='6' id="cellSeven" class="cell bordersLeft bordersDown"></div>
+            <div value='7' id="cellEight" class="cell bordersDown"></div>
+            <div value='8' id="cellNine" class="cell bordersRight bordersDown"></div>
         </div>
-        <div class="buttonContainer">
+        <!-- <div class="buttonContainer">
             <button>HUMAN</button>
-            <button>COMPUTER(doesn't work)</button>
-        </div>
+            <button>COMPUTER</button>
+        </div> -->
     </div>
     <script src="script.js"></script>
 </body>
