@@ -24,91 +24,63 @@ const cellNine = document.getElementById('cellNine')
 
 cellOne.addEventListener('click', (e) => {
     if (!cellOneClicked) {
-        cellOne.innerHTML = whoseTurn
-        gameBoard[0] = whoseTurn
-        console.log(gameBoard) 
-        checkIfTheIsOver()
-        changeTurn()
+        game(cellOneClicked, cellOne, 0)
         cellOneClicked = true
     }
 })
+
 cellTwo.addEventListener('click', (e) => {
     if (!cellTwoClicked) {
-        cellTwo.innerHTML = whoseTurn
-        gameBoard[1] = whoseTurn
-        console.log(gameBoard) 
-        checkIfTheIsOver()
-        changeTurn()
+        game(cellTwoClicked, cellTwo, 1)
         cellTwoClicked = true
     }
 })
+
 cellThree.addEventListener('click', (e) => {
     if (!cellThreeClicked) {
-        cellThree.innerHTML = whoseTurn
-        gameBoard[2] = whoseTurn
-        console.log(gameBoard) 
-        checkIfTheIsOver()
-        changeTurn()
+        game(cellThreeClicked, cellThree, 2 )
         cellThreeClicked = true
     }
 })
+
 cellFour.addEventListener('click', (e) => {
     if (!cellFourClicked) {
-        cellFour.innerHTML = whoseTurn
-        gameBoard[3] = whoseTurn
-        console.log(gameBoard)
-        checkIfTheIsOver() 
-        changeTurn()
+        game(cellFourClicked, cellFour, 3)
         cellFourClicked = true
     }
 })
+
 cellFive.addEventListener('click', (e) => {
     if (!cellFiveClicked) {
-        cellFive.innerHTML = whoseTurn
-        gameBoard[4] = whoseTurn
-        console.log(gameBoard) 
-        checkIfTheIsOver()
-        changeTurn()
+        game(cellFiveClicked, cellFive, 4)
         cellFiveClicked = true
     }
 })
+
 cellSix.addEventListener('click', (e) => {
     if (!cellSixClicked) {
-        cellSix.innerHTML = whoseTurn
-        gameBoard[5] = whoseTurn
-        console.log(gameBoard) 
-        checkIfTheIsOver()
-        changeTurn()
+        game(cellSixClicked, cellSix, 5)
         cellSixClicked = true
     }
 })
+
 cellSeven.addEventListener('click', (e) => {
     if (!cellSevenClicked) {
-        cellSeven.innerHTML = whoseTurn
-        gameBoard[6] = whoseTurn
-        console.log(gameBoard) 
-        checkIfTheIsOver()
-        changeTurn()
+        game(cellSevenClicked, cellSeven, 6)
         cellSevenClicked = true
     }
 })
+
 cellEight.addEventListener('click', (e) => {
     if (!cellEightClicked) {
-        cellEight.innerHTML = whoseTurn
-        gameBoard[7] = whoseTurn
-        console.log(gameBoard) 
-        checkIfTheIsOver()
-        changeTurn()
+        game(cellEightClicked, cellEight, 7)
         cellEightClicked = true
     }
 })
+
 cellNine.addEventListener('click', (e) => {
     if (!cellNineClicked) {
-        cellNine.innerHTML = whoseTurn
-        gameBoard[8] = whoseTurn
-        console.log(gameBoard) 
-        checkIfTheIsOver()
-        changeTurn()
+        game(cellNineClicked, cellNine, 8)
         cellNineClicked = true
     }
 })
@@ -116,6 +88,13 @@ cellNine.addEventListener('click', (e) => {
 resetBtn.addEventListener('click', (e) => {
     resetGame()
 })
+
+const game = function(cellClicked, cellNum, num) {
+    cellNum.innerHTML = whoseTurn
+    gameBoard[num] = whoseTurn 
+    checkIfTheIsOver()
+    changeTurn()
+}
 
 const changeTurn = function() {
     if (whoseTurn == "X") {
@@ -137,6 +116,7 @@ const checkIfTheIsOver = function() {
         gameBoard[2] == "X" && gameBoard[5] == "X" && gameBoard[8] == "X" ||
         gameBoard[0] == "X" && gameBoard[4] == "X" && gameBoard[8] == "X" ||
         gameBoard[2] == "X" && gameBoard[4] == "X" && gameBoard[6] == "X"){
+        allToTrue()
         console.log("x won")
     }
 
@@ -148,12 +128,26 @@ const checkIfTheIsOver = function() {
         gameBoard[2] == "O" && gameBoard[5] == "O" && gameBoard[8] == "O" ||
         gameBoard[0] == "O" && gameBoard[4] == "O" && gameBoard[8] == "O" ||
         gameBoard[2] == "O" && gameBoard[4] == "O" && gameBoard[6] == "O"){
+        allToTrue()
         console.log("o won")
     }
 
     else if (stepCounter == 8){
+        allToTrue()
         console.log("game over")
     }
+}
+
+const allToTrue = function() {
+    cellOneClicked = 
+    cellTwoClicked = 
+    cellThreeClicked = 
+    cellFourClicked = 
+    cellFiveClicked = 
+    cellSixClicked = 
+    cellSevenClicked = 
+    cellEightClicked = 
+    cellNineClicked = true
 }
 
 const resetGame = function() {
@@ -178,7 +172,4 @@ const resetGame = function() {
     cellSeven.innerHTML = ""
     cellEight.innerHTML = ""
     cellNine.innerHTML = ""
-}
-
-const game = function() {
 }
