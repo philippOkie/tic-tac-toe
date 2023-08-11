@@ -11,6 +11,7 @@ let cellOneClicked =
     cellEightClicked = 
     cellNineClicked = false
 
+const showTheResult = document.getElementById('showTheResult')
 const resetBtn = document.getElementById('resetBtn')
 const cellOne = document.getElementById('cellOne')
 const cellTwo = document.getElementById('cellTwo')
@@ -22,70 +23,70 @@ const cellSeven = document.getElementById('cellSeven')
 const cellEight = document.getElementById('cellEight')
 const cellNine = document.getElementById('cellNine')
 
-cellOne.addEventListener('click', (e) => {
+cellOne.addEventListener('click', () => {
     if (!cellOneClicked) {
         game(cellOneClicked, cellOne, 0)
         cellOneClicked = true
     }
 })
 
-cellTwo.addEventListener('click', (e) => {
+cellTwo.addEventListener('click', () => {
     if (!cellTwoClicked) {
         game(cellTwoClicked, cellTwo, 1)
         cellTwoClicked = true
     }
 })
 
-cellThree.addEventListener('click', (e) => {
+cellThree.addEventListener('click', () => {
     if (!cellThreeClicked) {
         game(cellThreeClicked, cellThree, 2 )
         cellThreeClicked = true
     }
 })
 
-cellFour.addEventListener('click', (e) => {
+cellFour.addEventListener('click', () => {
     if (!cellFourClicked) {
         game(cellFourClicked, cellFour, 3)
         cellFourClicked = true
     }
 })
 
-cellFive.addEventListener('click', (e) => {
+cellFive.addEventListener('click', () => {
     if (!cellFiveClicked) {
         game(cellFiveClicked, cellFive, 4)
         cellFiveClicked = true
     }
 })
 
-cellSix.addEventListener('click', (e) => {
+cellSix.addEventListener('click', () => {
     if (!cellSixClicked) {
         game(cellSixClicked, cellSix, 5)
         cellSixClicked = true
     }
 })
 
-cellSeven.addEventListener('click', (e) => {
+cellSeven.addEventListener('click', () => {
     if (!cellSevenClicked) {
         game(cellSevenClicked, cellSeven, 6)
         cellSevenClicked = true
     }
 })
 
-cellEight.addEventListener('click', (e) => {
+cellEight.addEventListener('click', () => {
     if (!cellEightClicked) {
         game(cellEightClicked, cellEight, 7)
         cellEightClicked = true
     }
 })
 
-cellNine.addEventListener('click', (e) => {
+cellNine.addEventListener('click', () => {
     if (!cellNineClicked) {
         game(cellNineClicked, cellNine, 8)
         cellNineClicked = true
     }
 })
 
-resetBtn.addEventListener('click', (e) => {
+resetBtn.addEventListener('click', () => {
     resetGame()
 })
 
@@ -117,7 +118,7 @@ const checkIfTheIsOver = function() {
         gameBoard[0] == "X" && gameBoard[4] == "X" && gameBoard[8] == "X" ||
         gameBoard[2] == "X" && gameBoard[4] == "X" && gameBoard[6] == "X"){
         allToTrue()
-        console.log("x won")
+        showTheResult.innerHTML = "PLAYER ONE WINS"
     }
 
     else if (gameBoard[0] == "O" && gameBoard[1] == "O" && gameBoard[2] == "O" ||
@@ -129,12 +130,12 @@ const checkIfTheIsOver = function() {
         gameBoard[0] == "O" && gameBoard[4] == "O" && gameBoard[8] == "O" ||
         gameBoard[2] == "O" && gameBoard[4] == "O" && gameBoard[6] == "O"){
         allToTrue()
-        console.log("o won")
+        showTheResult.innerHTML = "PLAYER TWO WINS"
     }
 
     else if (stepCounter == 8){
         allToTrue()
-        console.log("game over")
+        showTheResult.innerHTML = "TIE"
     }
 }
 
@@ -172,4 +173,5 @@ const resetGame = function() {
     cellSeven.innerHTML = ""
     cellEight.innerHTML = ""
     cellNine.innerHTML = ""
+    showTheResult.innerHTML = "TIC TAC TOE"
 }

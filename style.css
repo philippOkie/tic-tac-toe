@@ -77,12 +77,32 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 3s;
+    transition: 0.5s;
 }
 
 .title {
     font-size: xx-large;
     font-weight: 700;
+    --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: 0.2s;
 }
 
 .bordersUp {
@@ -125,6 +145,7 @@ button{
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  transition: 0.2s;
 }
 
 button:hover,
@@ -137,4 +158,9 @@ button:focus-visible{
 button:active {
   background: var(--color);
   color: #fff;
+}
+
+.cell:hover {
+    background-color: #373B44;
+    color: #fff;
 }
